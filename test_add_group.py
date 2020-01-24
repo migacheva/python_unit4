@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.action_chains import ActionChains
 import time, unittest
 
@@ -19,27 +19,27 @@ class test_add_group(unittest.TestCase):
     success = True
     wd = self.wd
     wd.get("http://localhost/addressbook/")
-    wd.find_elements_by_name("user").click()
-    wd.find_elements_by_name("user").clear()
-    wd.find_elements_by_name("user").send_keys("admin")
-    wd.find_elements_by_name("pass").click()
-    wd.find_elements_by_name("pass").clear()
-    wd.find_elements_by_name("pass").send_keys("secret")
-    wd.find_elements_by_css_selector("input[type=\"submit\"]").click()
-    wd.find_elements_by_link_text("groups").click
-    wd.find_elements_by_name("new").click()
-    wd.find_elements_by_name("group_name").click()
-    wd.find_elements_by_name("group_name").clear()
-    wd.find_elements_by_name("group_name").send_keys("dfgdfg")
-    wd.find_elements_by_name("group_header").click()
-    wd.find_elements_by_name("group_header").clear()
-    wd.find_elements_by_name("group_header").send_keys("dfgdfgghjghj")
-    wd.find_elements_by_name("group_footer").click()
-    wd.find_elements_by_name("group_footer").clear()
-    wd.find_elements_by_name("group_footer").send_keys("dfgdfggdfgdfgghjghjdfgdfgghjghjhjghj")
-    wd.find_elements_by_name("submit").click()
-    wd.find_elements_by_link_text("group page").click()
-    wd.find_elements_by_link_text("Logout").click()
+    wd.find_element_by_name("user").click()
+    wd.find_element_by_name("user").clear()
+    wd.find_element_by_name("user").send_keys("admin")
+    wd.find_element_by_name("pass").click()
+    wd.find_element_by_name("pass").clear()
+    wd.find_element_by_name("pass").send_keys("secret")
+    wd.find_element_by_css_selector("input[type=\"submit\"]").click()
+    wd.find_element_by_link_text("groups").click()
+    wd.find_element_by_name("new").click()
+    wd.find_element_by_name("group_name").click()
+    wd.find_element_by_name("group_name").clear()
+    wd.find_element_by_name("group_name").send_keys("dfgdfg")
+    wd.find_element_by_name("group_header").click()
+    wd.find_element_by_name("group_header").clear()
+    wd.find_element_by_name("group_header").send_keys("dfgdfgghjghj")
+    wd.find_element_by_name("group_footer").click()
+    wd.find_element_by_name("group_footer").clear()
+    wd.find_element_by_name("group_footer").send_keys("dfgdfggdfgdfgghjghjghj")
+    wd.find_element_by_name("submit").click()
+    wd.find_element_by_link_text("group page").click()
+    wd.find_element_by_link_text("Logout").click()
     self.assertTrue(success)
 
   def tearDown(self):
