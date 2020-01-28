@@ -32,7 +32,7 @@ class GroupHelper:
         # select first group
         wd.find_element_by_name("selected[]").click()
         # mod deletion
-        wd.find_element_by_name("edit").click()
+        wd.find_element_by_link("edit.php?id=5").click()
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
         wd.find_element_by_name("group_name").send_keys(group.name)
