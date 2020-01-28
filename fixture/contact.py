@@ -28,6 +28,7 @@ class ContactHelper:
         wd = self.app.wd
         # Выбрать элемент для изменения (1й) selected[]
         wd.find_element_by_name("selected[]").click()
+# Не удается обратиться к элементу иконке
         # Нажать на карандаш title Edit
         wd.find_element_by_link_text("Edit").click()
         # Изменить имя, фамилию, никнейм
@@ -43,3 +44,14 @@ class ContactHelper:
         # Нажать обновить name="update"
         wd.find_element_by_name("update").click()
         # Вернуться на домашнюю страницу
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        # select first group
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+# Не удается выбрать кнопку удаления
+        wd.find_element_by_name("Delete").click()
+        # Нажать ок на всплывающем окне
+# как работать со всплывающим окном?
+        # Вернуться на главную
