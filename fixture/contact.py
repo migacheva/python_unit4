@@ -30,7 +30,7 @@ class ContactHelper:
         wd.find_element_by_name("selected[]").click()
 # Не удается обратиться к элементу иконке
         # Нажать на карандаш title Edit
-        wd.find_element_by_css_selector("[href='edit.php?id=7']>[title='Edit']").click()
+        wd.find_element_by_css_selector("tbody tr:nth-child(2) td:nth-child(8) a img").click()
         # Изменить имя, фамилию, никнейм
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
