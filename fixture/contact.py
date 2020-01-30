@@ -43,7 +43,6 @@ class ContactHelper:
         wd.find_element_by_name("nickname").send_keys(contact.nickname)
         # Нажать обновить name="update"
         wd.find_element_by_name("update").click()
-        # Вернуться на домашнюю страницу
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -51,7 +50,8 @@ class ContactHelper:
         wd.find_element_by_name("selected[]").click()
         # submit deletion
 # Не удается выбрать кнопку удаления
-        wd.find_element_by_name("Delete").click()
+        wd.find_element_by_css_selector("div:nth-child(8) > input[type=button]").click()
         # Нажать ок на всплывающем окне
-# как работать со всплывающим окном?
-        # Вернуться на главную
+        # 19 | assertConfirmation | Delete 1 addresses? |  |
+        obj = wd.switch_to.alert
+        obj.accept()
