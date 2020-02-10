@@ -45,6 +45,7 @@ class GroupHelper:
 
     def delete_first_group(self):
         self.delete_group_by_index(0)
+        self.group_cache = None
 
     def delete_group_by_index(self, index):
         wd = self.app.wd
@@ -57,6 +58,7 @@ class GroupHelper:
 
     def modify_first_group(self, new_group_data):
         self.modify_group_by_index(0)
+        self.group_cache = None
 
     def modify_group_by_index(self, index, new_group_data):
         wd = self.app.wd
