@@ -8,7 +8,7 @@ class ContactHelper:
         wd = self.app.wd
         if text is not None:
             wd.find_element_by_name(field_name).click()
-            wd.find_element_by_name(field_name).clear()
+            # wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
 
     contact_cache = None
@@ -19,7 +19,7 @@ class ContactHelper:
             self.app.open_home_page()
             self.contact_cache = []
             for row in wd.find_elements_by_name("entry"):
-                cells = row.find_elements_by_name("td")
+                cells = row.find_elements_by_tag_name("td")
                 firstname = cells[1].text
                 lastname = cells[2].text
                 id = cells[0].find_element_by_tag_name("input").get_attribute("value")
@@ -61,20 +61,22 @@ class ContactHelper:
 #     def open_create_contact_page(self):
 #         wd = self.app.wd
 #         wd.find_element_by_link_text("add new").click()
-#     def fill_contact_form(self, contact):
-#         wd = self.app.wd
-#         self.change_field_value("firstname", contact.firstname)
-#         self.change_field_value("lastname", contact.lastname)
-#         self.change_field_value("nickname", contact.nickname)
-#
-#     def create(self, contact):
-#         wd = self.app.wd
-#         wd.find_element_by_link_text("add new").click()
-#         # fill group firm
-#         self.fill_contact_form(contact)
-#         # submit group creation
-#         wd.find_element_by_name("submit").click()
-#         # self.return_to_groups_page()
+
+    def fill_contact_form(self, contact):
+        wd = self.app.wd
+        # contact.XXX, XXX=model/contact - init после =
+        self.change_field_value("firstname", contact.firstname)
+        self.change_field_value("lastname", contact.lastname)
+        self.change_field_value("home", contact.homephone)
+        self.change_field_value("mobile", contact.mobilephone)
+        self.change_field_value("work", contact.workphone)
+        self.change_field_value("phone2", contact.secondaryphone)
+
+    def create(self, contact):
+        wd = self.app.wd
+        wd.find_element_by_link_text("add new").click()
+        self.fill_contact_form(contact)
+        wd.find_element_by_name("submit").click()
 #
 #     def select_first_contact(self):
 #         wd = self.app.wd
