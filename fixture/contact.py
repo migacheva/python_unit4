@@ -90,6 +90,7 @@ class ContactHelper:
         wd.find_element_by_link_text("add new").click()
         self.fill_contact_form(contact)
         wd.find_element_by_name("submit").click()
+        self.contact_cache = None
 
 
     def select_first_contact(self):
